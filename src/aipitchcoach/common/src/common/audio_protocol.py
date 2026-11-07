@@ -15,11 +15,9 @@ DTYPE_MAP = {
     1: np.int16
 }
 
-# reverse_map 
-
 DTYPE_REV = {
-    np.float32: 0,
-    np.int16: 1
+    np.dtype(np.float32): 0,
+    np.dtype(np.int16): 1,
 }
 
 def pack_audio(indata, sample_rate, channels) -> bytes:

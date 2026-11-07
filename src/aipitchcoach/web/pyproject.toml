@@ -1,0 +1,23 @@
+[project]
+name = "web"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { email = "kr.raahul.research@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "common",
+    "gradio>=5.0.0",
+]
+
+[project.scripts]
+aipitchcoach-web = "web.client:main"
+
+[tool.uv.sources]
+common = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"

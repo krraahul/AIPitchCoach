@@ -17,4 +17,7 @@ build-backend = "uv_build"
 members = [
     "src/aipitchcoach/voice_agent",
     "src/aipitchcoach/common",
+    "web",
+    "src/web",
+    "src/aipitchcoach/web",
 ]
