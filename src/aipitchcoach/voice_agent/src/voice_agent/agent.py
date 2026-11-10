@@ -7,7 +7,43 @@
 #     CHANNEL = 1
 #     DURATION = 25 # 25 SECONDS AUDIO PROCESSING
 
-    
+
+from transformers import pipeline
+MODEL_ID = "google/gemma-4-E2B-it"
+
+pipe = pipeline(
+    model=MODEL_ID,
+    task="any-to-any",
+    device_map={"": "cuda:0"},
+    dtype="auto"
+)
+
+def process_audio(chunks: bytearray):
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "audio",
+                    "audio": chunks
+                },
+                {
+                    "type": "text",
+                    "text": "Can you analyze the voice in termns of confidence, confusion, clarity and other emotional parameters."
+                }
+            ]
+        }
+    ]
+
+    outputs = pipe(
+        messages,
+        return_text_full = False,
+        generation_kwargs = {"max_new_token": 1024}
+    )
+
+    return outputs[0]['generated_text']
+
+
 
 import sounddevice as sd
 

@@ -64,7 +64,7 @@ CLIENT_JS = r"""
 
   const start = async () => {
     if (running) return;
-    const endpoint = document.querySelector("#audio-endpoint").value.trim();
+    const endpoint = document.querySelector("#audio-endpoint textarea").value.trim();
     if (!endpoint) {
       status("Enter a WebSocket endpoint.", true);
       return;

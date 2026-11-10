@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "websockets>=17.4",
+]
 
 [project.scripts]
 aipitchcoach = "aipitchcoach:main"
@@ -20,4 +22,5 @@ members = [
     "web",
     "src/web",
     "src/aipitchcoach/web",
+    "src/aipitchcoach/server",
 ]
